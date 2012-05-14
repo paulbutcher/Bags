@@ -8,8 +8,7 @@ object Bags {
   }
   
   // Assumes that bs has already been consolidated
-  def consolidate(b: Bag, bs: List[Bag]): List[Bag] =
-    bs.foldLeft(List(b)) { (x, y) =>
+  def consolidate(b: Bag, bs: List[Bag]): List[Bag] = bs.foldLeft(List(b)) { (x, y) =>
       val h :: t = x
       if ((h intersect y).nonEmpty)
         (h ++ y) :: t
