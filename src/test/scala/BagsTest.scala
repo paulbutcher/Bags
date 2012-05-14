@@ -8,9 +8,16 @@ class BagsTest extends Suite {
   val b = Set("b")
   val c = Set("c")
   val ab = Set("a", "b")
-  val cd = Set("c", "d")
   val bc = Set("b", "c")
+  val cd = Set("c", "d")
+  val da = Set("d", "a")
+  val ef = Set("e", "f")
+  val fg = Set("f", "g")
+  val gh = Set("g", "h")
+  val ha = Set("h", "a")
   val abc = Set("a", "b", "c")
+  val abcd = Set("a", "b", "c", "d")
+  val abcdefgh = Set("a", "b", "c", "d", "e", "f", "g", "h")
 
   def testBags {
     assert(consolidate(List()) === List())
@@ -22,5 +29,7 @@ class BagsTest extends Suite {
     assert(consolidate(List(ab, a, b, cd)) === List(ab, cd))
     assert(consolidate(List(ab, a, b, cd, c)) === List(ab, cd))
     assert(consolidate(List(ab, bc)) === List(abc))
+	assert(consolidate(List(ab, bc, cd, da)) === List(abcd))
+	assert(consolidate(List(ab, bc, cd, da, ef, fg, gh, ha)) === List(abcdefgh))
   }
 }
