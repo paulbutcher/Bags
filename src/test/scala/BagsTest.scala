@@ -29,7 +29,7 @@ class BagsTest extends Suite {
     assert(consolidate(List(ab, a, b, cd)) === List(ab, cd))
     assert(consolidate(List(ab, a, b, cd, c)) === List(ab, cd))
     assert(consolidate(List(ab, bc)) === List(abc))
-	assert(consolidate(List(ab, bc, cd, da)) === List(abcd))
-	assert(consolidate(List(ab, bc, cd, da, ef, fg, gh, ha)) === List(abcdefgh))
+    assert(consolidate(List(ab, bc, cd, da)) === List(abcd))
+    assert(consolidate(List(ab, bc, cd, da, ef, fg, gh, ha)) === List(abcdefgh))
   }
 }
