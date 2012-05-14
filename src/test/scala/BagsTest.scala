@@ -4,23 +4,23 @@ class BagsTest extends Suite {
   
   import Bags._
   
-  val b_a = Set("a")
-  val b_b = Set("b")
-  val b_c = Set("c")
-  val b_ab = Set("a", "b")
-  val b_cd = Set("c", "d")
-  val b_bc = Set("b", "c")
-  val b_abc = Set("a", "b", "c")
+  val a = Set("a")
+  val b = Set("b")
+  val c = Set("c")
+  val ab = Set("a", "b")
+  val cd = Set("c", "d")
+  val bc = Set("b", "c")
+  val abc = Set("a", "b", "c")
 
   def testBags {
     assert(consolidate(List()) === List())
-    assert(consolidate(List(b_a, b_b)) === List(b_a, b_b))
-    assert(consolidate(List(b_a, b_b, b_c)) === List(b_a, b_b, b_c))
-    assert(consolidate(List(b_a, b_b, b_ab)) === List(b_ab))
-    assert(consolidate(List(b_ab, b_a, b_b)) === List(b_ab))
-    assert(consolidate(List(b_ab, b_a, b_b, b_c)) === List(b_ab, b_c))
-    assert(consolidate(List(b_ab, b_a, b_b, b_cd)) === List(b_ab, b_cd))
-    assert(consolidate(List(b_ab, b_a, b_b, b_cd, b_c)) === List(b_ab, b_cd))
-    assert(consolidate(List(b_ab, b_bc)) === List(b_abc))
+    assert(consolidate(List(a, b)) === List(a, b))
+    assert(consolidate(List(a, b, c)) === List(a, b, c))
+    assert(consolidate(List(a, b, ab)) === List(ab))
+    assert(consolidate(List(ab, a, b)) === List(ab))
+    assert(consolidate(List(ab, a, b, c)) === List(ab, c))
+    assert(consolidate(List(ab, a, b, cd)) === List(ab, cd))
+    assert(consolidate(List(ab, a, b, cd, c)) === List(ab, cd))
+    assert(consolidate(List(ab, bc)) === List(abc))
   }
 }
