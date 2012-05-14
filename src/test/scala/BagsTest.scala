@@ -9,6 +9,8 @@ class BagsTest extends Suite {
   val b_c = Set("c")
   val b_ab = Set("a", "b")
   val b_cd = Set("c", "d")
+  val b_bc = Set("b", "c")
+  val b_abc = Set("a", "b", "c")
 
   def testBags {
     assert(consolidate(List()) === List())
@@ -19,5 +21,6 @@ class BagsTest extends Suite {
     assert(consolidate(List(b_ab, b_a, b_b, b_c)) === List(b_ab, b_c))
     assert(consolidate(List(b_ab, b_a, b_b, b_cd)) === List(b_ab, b_cd))
     assert(consolidate(List(b_ab, b_a, b_b, b_cd, b_c)) === List(b_ab, b_cd))
+    assert(consolidate(List(b_ab, b_bc)) === List(b_abc))
   }
 }
